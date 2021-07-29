@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--    <item-->
+<!--        android:id="@+id/search"-->
+<!--        android:contentDescription="Search"-->
+<!--        android:icon="@drawable/ic_search"-->
+<!--        android:iconTint="@color/white"-->
+<!--        android:title="Search"-->
+<!--        app:showAsAction="" />-->
+    <item
+        android:id="@+id/save"
+        android:contentDescription="Save"
+        android:icon="@drawable/ic_heart_white"
+        android:iconTint="@color/white"
+        android:title="Save"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/cart"
+        android:contentDescription="Menu"
+        android:icon="@drawable/ic_menu"
+        android:iconTint="@color/white"
+        android:title="Menu"
+        app:showAsAction="ifRoom" />
+</menu>

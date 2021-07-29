@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/blockShop"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MainTheme.MaxWidth"
+    android:paddingEnd="10dp">
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/gray_2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/shopImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:background="@color/gray_2"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line" />
+
+    <TextView
+        android:id="@+id/shopName"
+        style="@style/TextShopName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:drawableStart="@drawable/ic_checked"
+        android:drawablePadding="10dp"
+        android:text="Chen food - lap xuong tuoi kjaskjdh kajsdh akjsdhkajshd akjsdhkasjhd kajshdkj"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/shopImage"
+        app:layout_constraintTop_toTopOf="@id/shopImage" />
+
+    <TextView
+        android:id="@+id/shopRate"
+        style="@style/MainTheme.TextSmall"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_star_on"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:text="4.9"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/shopImage"
+        app:layout_constraintTop_toBottomOf="@id/shopName" />
+
+    <TextView
+        android:id="@+id/deliveryTime"
+        style="@style/MainTheme.TextSmall"
+        android:drawableStart="@drawable/ic_clock"
+        android:drawablePadding="5dp"
+        android:text="19min • 1.1km"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/shopRate" />
+
+    <TextView
+        android:id="@+id/voucherPrice"
+        style="@style/MainTheme.TextSmall"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/voucher_background"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="2dp"
+        android:text="Giảm món"
+        android:textColor="@color/primary_color"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/shopImage"
+        app:layout_constraintTop_toBottomOf="@id/shopRate" />
+
+    <TextView
+        android:id="@+id/voucherShip"
+        style="@style/MainTheme.TextSmall"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/voucher_background"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="2dp"
+        android:text="Freeship"
+        android:textColor="@color/primary_color"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/voucherPrice"
+        app:layout_constraintTop_toTopOf="@id/voucherPrice" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

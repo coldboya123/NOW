@@ -1,0 +1,95 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MainTheme.MaxScreen">
+
+    <ImageButton
+        android:id="@+id/register_btn_back"
+        style="@style/MainTheme"
+        android:layout_margin="20dp"
+        android:background="@null"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/register_banner"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/logo_now"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/MainTheme.MaxWidth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_banner">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_tf_name"
+            style="@style/MainTheme.MaxWidth.TextInputLayout"
+            android:layout_marginTop="10dp"
+            android:hint="@string/txt_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_user">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_txtname"
+                style="@style/MainTheme.MaxScreen.TextInputEditText"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_tf_phone"
+            style="@style/MainTheme.MaxWidth.TextInputLayout"
+            android:hint="@string/txt_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/register_tf_name"
+            app:startIconDrawable="@drawable/ic_telephone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_txtphone"
+                style="@style/MainTheme.MaxScreen.TextInputEditText"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_tf_pwd"
+            style="@style/MainTheme.MaxWidth.TextInputLayout"
+            android:hint="@string/txt_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/register_tf_phone"
+            app:startIconDrawable="@drawable/ic_password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_txtpwd"
+                style="@style/MainTheme.MaxScreen.TextInputEditText"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_tf_repwd"
+            style="@style/MainTheme.MaxWidth.TextInputLayout"
+            android:hint="@string/txt_repassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/register_tf_pwd"
+            app:startIconDrawable="@drawable/ic_password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_txtrepwd"
+                style="@style/MainTheme.MaxScreen.TextInputEditText"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/register_btn_reg"
+            style="@style/MainTheme.MaxWidth.ButtonLogin"
+            android:text="@string/txt_register"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/register_tf_repwd" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

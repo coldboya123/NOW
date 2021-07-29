@@ -1,0 +1,96 @@
+package com.example.now.View.HomeView.TabView;
+
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.example.now.Model.Constant.Constant;
+import com.example.now.Model.Object.Shop;
+import com.example.now.Repository.HomeRepository;
+import com.example.now.View.HomeView.RCV_HomeShop_Adapter;
+import com.example.now.View.HomeView.onTabLoading;
+import com.example.now.ViewModel.HomeViewModel;
+import com.example.now.databinding.FragmentHomeChickenBinding;
+
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class HomeChickenFragment extends Fragment {
+
+    private FragmentHomeChickenBinding binding;
+    private HomeViewModel viewModel;
+    private int page = 0;
+    private List<Shop> shopList = new ArrayList<>();
+    private RCV_HomeShop_Adapter adapter;
+    private JSONObject object;
+    private onTabLoading handlerTab;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        binding = FragmentHomeChickenBinding.inflate(inflater, container, false);
+
+        mapView();
+
+        return binding.getRoot();
+    }
+
+
+    private void mapView() {
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        adapter = new RCV_HomeShop_Adapter(shopList);
+        binding.recyclerView.setAdapter(adapter);
+    }
+
+    private void observeData(){
+        viewModel = new ViewModelProvider.Factory() {
+            @NonNull
+            @NotNull
+            @Override
+            public <T extends ViewModel> T create(@NonNull @NotNull Class<T> modelClass) {
+                return (T) new HomeViewModel(new HomeRepository());
+            }
+        }.create(HomeViewModel.class);
+        object = new JSONObject();
+        try {
+            object.put("function", "getHomeShop");
+            object.put("type", Constant.MONGA);
+            object.put("page", ++page);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        viewModel.getHomeShop(object.toString())
+                .observe(getViewLifecycleOwner(), shops -> {
+                    shopList.remove(shopList.size()-1);
+                    adapter.notifyItemRemoved(shopList.size());
+                    shopList.addAll(shops);
+                    adapter.notifyItemRangeInserted(shopList.size() - shops.size(), shops.size());
+                    Log.d("bbb", "loadmore: " + shopList.size());
+                    handlerTab.onTabLoading(false);
+                });
+    }
+
+    public void loadmore(){
+        mapView();
+        shopList.add(null);
+        observeData();
+    }
+
+    public void setOnLoading(onTabLoading handlerTab){
+        this.handlerTab = handlerTab;
+    }
+}

@@ -1,0 +1,193 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.NOW" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <item name="android:statusBarColor" tools:targetApi="l">#FF271C</item>
+    </style>
+
+    <style name="MainTheme" parent="Theme.NOW">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MainTheme.MaxWidth" parent="MainTheme">
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="MainTheme.MaxWidthConstraint" parent="MainTheme">
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="MainTheme.MaxHeight" parent="MainTheme">
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MainTheme.MaxHeightConstraint" parent="MainTheme">
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="MainTheme.MaxScreen" parent="MainTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MainTheme.MaxWidth.SearchBar" parent="Widget.AppCompat.SearchView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="drawableStartCompat">@drawable/ic_search</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:background">@drawable/searchbar_background_white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="MainTheme.TextSmall" parent="MainTheme">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="MainTheme.TextNormal" parent="MainTheme">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="MainTheme.MaxWidth.TextNormal" parent="MainTheme.MaxWidth">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="MainTheme.MaxScreen.TextInputEditText" parent="MainTheme.MaxScreen">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="MainTheme.MaxWidth.TextInputLayout" parent="Base.Widget.MaterialComponents.TextInputLayout">
+        <item name="android:layout_height">55dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginStart">35dp</item>
+        <item name="android:layout_marginEnd">35dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:gravity">center</item>
+        <item name="boxStrokeColor">@color/gray</item>
+        <item name="boxStrokeErrorColor">@color/primary_color</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="hintTextColor">@color/primary_color</item>
+        <item name="materialThemeOverlay">
+            @style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox
+        </item>
+    </style>
+
+    <style name="MainTheme.MaxWidth.ButtonLogin" parent="MainTheme.MaxWidth">
+        <item name="android:layout_height">45dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">35dp</item>
+        <item name="android:layout_marginEnd">35dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:background">@drawable/background_btnprimary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MainTheme.Title" parent="MainTheme.MaxWidth">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+    </style>
+    <style name="MainTheme.TitleShop" parent="MainTheme.MaxWidth">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="fontWeight">700</item>
+    </style>
+
+    <style name="TextShopName" parent="MainTheme">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+
+    <style name="MyBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemTextAppearanceActive">@style/MyBottomNavigationView.TextAppearance</item>
+        <item name="itemTextAppearanceInactive">@style/MyBottomNavigationView.TextAppearance</item>
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@drawable/bottom_navigation_item_color</item>
+        <item name="itemRippleColor">@color/primary_color3</item>
+        <item name="itemTextColor">@drawable/bottom_navigation_item_color</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="menu">@menu/menu_bottom_bar</item>
+    </style>
+
+    <style name="MyBottomNavigationView.TextAppearance" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="MyTabLayout.TextAppearance" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextFoodName" parent="MainTheme">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="MainTheme.MaxWidth.SliderView" parent="MainTheme.MaxWidth">
+        <item name="elevation">10dp</item>
+        <item name="android:layout_height">130dp</item>
+        <item name="android:paddingVertical" tools:targetApi="o">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="sliderAnimationDuration">600</item>
+        <item name="sliderAutoCycleEnabled">true</item>
+        <item name="sliderIndicatorAnimationDuration">600</item>
+        <item name="sliderIndicatorGravity">start|bottom</item>
+        <item name="sliderIndicatorMarginBottom">5dp</item>
+        <item name="sliderIndicatorMarginLeft">5dp</item>
+        <item name="sliderIndicatorOrientation">horizontal</item>
+        <item name="sliderIndicatorPadding">3dp</item>
+        <item name="sliderIndicatorRadius">2dp</item>
+        <item name="sliderIndicatorSelectedColor">@color/primary_color</item>
+        <item name="sliderIndicatorUnselectedColor">@color/gray_2</item>
+        <item name="sliderScrollTimeInSec">3</item>
+        <item name="sliderStartAutoCycle">true</item>
+    </style>
+
+    <style name="MainTheme.CustomRatingBar" parent="MainTheme">
+        <item name="android:progressDrawable">@drawable/rating_bar</item>
+        <item name="android:minHeight">12dp</item>
+        <item name="android:numStars">5</item>
+        <item name="android:stepSize">0.01</item>
+        <item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar.Small</item>
+    </style>
+</resources>

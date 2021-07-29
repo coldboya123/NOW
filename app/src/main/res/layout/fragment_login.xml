@@ -1,0 +1,111 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MainTheme.MaxScreen">
+
+    <ImageButton
+        android:id="@+id/login_btn_back"
+        style="@style/MainTheme"
+        android:layout_margin="20dp"
+        android:background="@null"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/login_banner"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/logo_now"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_btn_back" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/MainTheme.MaxWidth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/login_guideline"
+        app:layout_constraintTop_toBottomOf="@id/login_banner">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone"
+            style="@style/MainTheme.MaxWidth.TextInputLayout"
+            android:hint="@string/txt_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_telephone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_txt_phone"
+                style="@style/MainTheme.MaxScreen.TextInputEditText"
+                android:inputType="text"
+                android:padding="0dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            style="@style/MainTheme.MaxWidth.TextInputLayout"
+            android:layout_marginTop="10dp"
+            android:hint="@string/txt_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone"
+            app:startIconDrawable="@drawable/ic_password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_txt_pwd"
+                style="@style/MainTheme.MaxScreen.TextInputEditText"
+                android:inputType="textPassword"
+                android:padding="0dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/MainTheme.MaxWidth.ButtonLogin"
+            android:text="@string/txt_login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/password" />
+
+
+        <TextView
+            android:id="@+id/login_forgot_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Quên mật khẩu"
+            android:textColor="@color/primary_color"
+            app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
+        <LinearLayout
+            android:id="@+id/login_register_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/login_forgot_pwd">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Chưa có tài khoản? " />
+
+            <TextView
+                android:id="@+id/btnRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Đăng ký ngay"
+                android:textColor="@color/primary_color" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/login_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+</androidx.constraintlayout.widget.ConstraintLayout>

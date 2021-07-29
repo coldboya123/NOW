@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MainTheme.MaxScreen"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".View.HomeView.HomeFragment">
+        <LinearLayout
+            android:id="@+id/homeContainer"
+            style="@style/MainTheme.MaxWidth"
+            android:orientation="vertical"/>
+</LinearLayout>

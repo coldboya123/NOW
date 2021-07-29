@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">NOW</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtdelivery_to">Giao hàng đến:</string>
+    <string name="txtaddress">Address</string>
+    <string name="txtsearchBar">Tìm kiếm địa chỉ, món ăn, thức uống ...</string>
+    <string name="txtCollection">Bộ sưu tập</string>
+    <string name="txtNoComment">Không ai "bình luận" hết vậy ta?</string>
+    <string name="txtOrderNow">Đặt món ngay và cho quán vào đánh giá xịn xịn bạn nhé!</string>
+    <string name="txtdelivery">Giao hàng</string>
+    <string name="txtMe">Tôi</string>
+    <string name="txt_voucher">Ví Voucher</string>
+    <string name="txt_shopee_xu">Shopee Xu</string>
+    <string name="txt_payment">Thanh toán</string>
+    <string name="txt_location">Địa chỉ</string>
+    <string name="txt_invite_friend">Mời bạn bè</string>
+    <string name="txt_help">Trung tâm trợ giúp</string>
+    <string name="txt_seller_app">Ứng dụng cho chủ quán</string>
+    <string name="txt_policy">Chính sách quy định</string>
+    <string name="txt_setting">Cài đặt</string>
+    <string name="txt_about">Về Now</string>
+    <string name="txt_logout">Đăng xuất</string>
+    <string name="txt_name">Họ tên</string>
+    <string name="txt_phone">Số điện thoại</string>
+    <string name="txt_password">Mật khẩu</string>
+    <string name="txt_email">Email</string>
+    <string name="txt_repassword">Nhập lại mật khẩu</string>
+    <string name="txt_register">Đăng ký</string>
+    <string name="txt_login">Đăng nhập</string>
+</resources>

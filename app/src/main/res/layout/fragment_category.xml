@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MainTheme.MaxWidth"
+    android:orientation="vertical"
+    tools:ignore="ExtraText">
+
+    <LinearLayout
+        style="@style/MainTheme.MaxWidth"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_back" />
+
+        <LinearLayout
+            style="@style/MainTheme.MaxWidth"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:id="@+id/txtDeliveryTo"
+                style="@style/MainTheme.TextSmall"
+                android:text="@string/txtdelivery_to"
+                android:textColor="@color/gray" />
+
+            <TextView
+                android:id="@+id/txtAddress"
+                style="@style/TextShopName"
+                android:layout_width="match_parent"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@string/txtaddress"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:drawableStartCompat="@drawable/ic_location" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/searchBar"
+        style="@style/MainTheme.MaxWidth.SearchBar"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="5dp"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="5dp"
+        android:paddingHorizontal="15dp"
+        android:text="@string/txtsearchBar"
+        android:textColor="@color/gray"
+        android:textSize="14sp"
+        app:drawableTint="@color/gray" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        style="@style/MainTheme.MaxWidth"
+        tools:context=".View.CategoryView.CategoryFragment">
+
+        <LinearLayout
+            style="@style/MainTheme.MaxWidth"
+            android:background="@color/gray_1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/MainTheme.Title"
+                android:text="@string/txtCollection" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvCollection"
+                style="@style/MainTheme.MaxWidth"
+                android:paddingHorizontal="5dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvShop"
+                style="@style/MainTheme.MaxWidth"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

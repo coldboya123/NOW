@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/collection_image"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:adjustViewBounds="true"
+        android:background="@color/gray_1"/>
+    <TextView
+        android:id="@+id/collection_name"
+        style="@style/MainTheme.TextNormal"
+        android:maxLines="2"
+        android:lines="2"
+        android:textStyle="bold"
+        android:text="Sale tuoi nua gia"/>
+</LinearLayout>
