@@ -42,6 +42,12 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 style="?android:attr/borderlessButtonStyle"/>
+            <TextView
+                android:id="@+id/userName"
+                android:gravity="center"
+                android:visibility="gone"
+                android:paddingStart="0dp"
+                style="@style/MainTheme.Title"/>
         </LinearLayout>
 
         <TextView

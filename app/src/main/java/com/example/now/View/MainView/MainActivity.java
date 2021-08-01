@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         binding.bottomNavigation.setSelectedItemId(R.id.bottomnavigation_order);
+                        Log.d("bbb", "onPageSelected: asasasssasasasaas");
                         break;
                     case 2:
                         binding.bottomNavigation.setSelectedItemId(R.id.bottomnavigation_saved);

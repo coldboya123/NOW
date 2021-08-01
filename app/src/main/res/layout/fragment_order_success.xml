@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MainTheme.MaxScreen"
+    android:orientation="vertical"
+    tools:context=".View.ShopView.OrderSuccessFragment">
+
+    <TextView
+        style="@style/MainTheme.Title"
+        android:text="Đặt hàng thành công"
+        android:gravity="center_horizontal"
+        android:paddingStart="0dp"
+        android:textSize="25sp"
+        android:textColor="@color/green"
+        android:layout_marginTop="30dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/delivery"/>
+
+    <TextView
+        android:text="Vui lòng đợi trong khi shipper lấy món ăn và giao đến bạn"
+        style="@style/MainTheme.Title"
+        android:gravity="center_horizontal"
+        android:paddingStart="0dp"
+        android:textSize="18sp"
+        android:textColor="@color/primary_color"/>
+</LinearLayout>

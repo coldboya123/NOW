@@ -1,17 +1,18 @@
 package com.example.now.View.ShopView.TabView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +22,9 @@ import com.example.now.Model.Object.Food;
 import com.example.now.Model.Object.Shop;
 import com.example.now.R;
 import com.example.now.Repository.ShopRepository;
+import com.example.now.View.LoginView.LoginActivity;
 import com.example.now.View.ShopView.RCV_GroupFood_Adapter;
 import com.example.now.View.ShopView.ShopFragment;
-import com.example.now.View.ShopView.onSelectFood;
 import com.example.now.ViewModel.ShopViewModel;
 import com.example.now.databinding.FragmentShopOrderBinding;
 
@@ -51,6 +52,7 @@ public class ShopOrderFragment extends Fragment {
         mapView();
         notifyCartChange();
         observeData();
+        event();
 
         return binding.getRoot();
     }
@@ -97,7 +99,7 @@ public class ShopOrderFragment extends Fragment {
                     adapter.setonSelectFoodListener(food -> {
                         ShopFragment shopFragment = (ShopFragment) getParentFragment();
                         if (shopFragment != null){
-                            shopFragment.onSelectFood(food);
+                            shopFragment.onSelectFood(shop, food);
                         }
                     });
                     adapter.setOnClickButtonBuyListener(this::notifyCartChange);
@@ -113,6 +115,21 @@ public class ShopOrderFragment extends Fragment {
         } else {
             binding.blockCart.setVisibility(View.GONE);
         }
+    }
+
+    private void event() {
+        binding.btnDelivery.setOnClickListener(v -> {
+            SharedPreferences preferences = requireContext().getSharedPreferences("data", Context.MODE_PRIVATE);
+            if (preferences.getString("token", "").isEmpty()){
+                startActivity(new Intent(requireContext(), LoginActivity.class));
+                requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            } else {
+                ShopFragment shopFragment = (ShopFragment) getParentFragment();
+                if (shopFragment != null){
+                    shopFragment.onClickDelivery(shop);
+                }
+            }
+        });
     }
 
 }

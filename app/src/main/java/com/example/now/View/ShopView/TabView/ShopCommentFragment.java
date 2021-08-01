@@ -1,66 +1,111 @@
 package com.example.now.View.ShopView.TabView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.example.now.Model.Object.Comment;
+import com.example.now.Model.Object.Shop;
 import com.example.now.R;
+import com.example.now.Repository.ShopRepository;
+import com.example.now.View.ShopView.RCV_Comment_Adapter;
+import com.example.now.ViewModel.ShopViewModel;
+import com.example.now.databinding.FragmentShopCommentBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ShopCommentFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
+
 public class ShopCommentFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public ShopCommentFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ShopCommentFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ShopCommentFragment newInstance(String param1, String param2) {
-        ShopCommentFragment fragment = new ShopCommentFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private FragmentShopCommentBinding binding;
+    private ShopViewModel viewModel;
+    private JSONObject object;
+    private Shop shop;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shop_comment, container, false);
+        binding = FragmentShopCommentBinding.inflate(inflater, container, false);
+
+        mapview();
+        observeData();
+
+        return binding.getRoot();
+    }
+
+    private void mapview() {
+        shop = (Shop) requireActivity().getIntent().getSerializableExtra("shop");
+        viewModel = new ViewModelProvider.Factory() {
+            @NonNull
+            @NotNull
+            @Override
+            public <T extends ViewModel> T create(@NonNull @NotNull Class<T> modelClass) {
+                return (T) new ShopViewModel(new ShopRepository());
+            }
+        }.create(ShopViewModel.class);
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void observeData(){
+        object = new JSONObject();
+        try {
+            object.put("function", "getShopComment");
+            object.put("id", shop.getId());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        viewModel.getShopComment(object.toString())
+                .observe(getViewLifecycleOwner(), comments -> {
+                    if (comments.size() > 0){
+                        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+                        binding.recyclerView.setAdapter(new RCV_Comment_Adapter(comments));
+                        binding.averageRate.setText(getTotalRate(comments) + "");
+                        binding.totalRating.setText(comments.size() + " đánh giá");
+                        setProgress(binding.progress5, binding.num5, comments, 5);
+                        setProgress(binding.progress4, binding.num4, comments, 4);
+                        setProgress(binding.progress3, binding.num3, comments, 3);
+                        setProgress(binding.progress2, binding.num2, comments, 2);
+                        setProgress(binding.progress1, binding.num1, comments, 1);
+                        binding.blockNoComment.setVisibility(View.GONE);
+                    } else {
+                        binding.blockRating.setVisibility(View.GONE);
+                        binding.blockNoComment.setVisibility(View.VISIBLE);
+                    }
+                });
+    }
+
+    private float getTotalRate(List<Comment> list){
+        float totalRate = 0;
+        for (int i = 0; i < list.size(); i++) {
+            totalRate += Float.parseFloat(list.get(i).getRate());
+        }
+        return totalRate/list.size();
+    }
+
+    private void setProgress(ProgressBar progress, TextView textView, List<Comment> list, int rate){
+        int count = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (Integer.parseInt(list.get(i).getRate()) == rate){
+                count ++;
+            }
+        }
+        progress.setProgress(count*100/list.size());
+        textView.setText(count + "");
     }
 }

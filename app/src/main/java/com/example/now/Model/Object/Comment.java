@@ -3,7 +3,7 @@ package com.example.now.Model.Object;
 import com.example.now.Model.Constant.Constant;
 import com.google.gson.annotations.SerializedName;
 
-public class FoodComment {
+public class Comment {
 
 
     @SerializedName("id")
@@ -18,7 +18,7 @@ public class FoodComment {
     private String rate;
     @SerializedName("datetime")
     private String datetime;
-    @SerializedName("userName")
+    @SerializedName("name")
     private String userName;
     @SerializedName("userImage")
     private String userImage;
@@ -37,7 +37,7 @@ public class FoodComment {
                 '}';
     }
 
-    public FoodComment(String id, String foodId, String userId, String comment, String rate, String datetime, String userName, String userImage) {
+    public Comment(String id, String foodId, String userId, String comment, String rate, String datetime, String userName, String userImage) {
         this.id = id;
         this.foodId = foodId;
         this.userId = userId;

@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/MainTheme.MaxScreen"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".View.ShopView.TabView.ShopDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="1dp"
+        android:background="@color/gray_2" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/shopAddress"
+        style="@style/MainTheme.MaxWidth.TextNormal"
+        android:layout_width="match_parent"
+        android:layout_marginVertical="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/txtaddress"
+        app:drawableStartCompat="@drawable/ic_cursor" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_2" />
+
+    <TextView
+        android:id="@+id/shopCate"
+        style="@style/MainTheme.MaxWidth.TextNormal"
+        android:layout_width="match_parent"
+        android:layout_marginVertical="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/txt_cate"
+        app:drawableStartCompat="@drawable/ic_fork" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_2" />
+
+    <TextView
+        android:id="@+id/shopPrice"
+        style="@style/MainTheme.MaxWidth.TextNormal"
+        android:layout_width="match_parent"
+        android:layout_marginVertical="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/txt_average_price"
+        app:drawableStartCompat="@drawable/ic_money" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_2" />
+
+    <TextView
+        android:id="@+id/shopOpenTime"
+        style="@style/MainTheme.MaxWidth.TextNormal"
+        android:layout_width="match_parent"
+        android:layout_marginVertical="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/txt_open_time"
+        app:drawableStartCompat="@drawable/ic_clock_blue" />
+
+</LinearLayout>

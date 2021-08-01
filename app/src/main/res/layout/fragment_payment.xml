@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MainTheme.MaxScreen"
+    android:background="@color/gray_1"
+    android:orientation="vertical"
+    tools:context=".View.Payment.PaymentFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/MainTheme.MaxWidth">
+
+        <TextView
+            android:id="@+id/toolbar"
+            style="@style/MainTheme.Title"
+            android:gravity="center"
+            android:paddingStart="0dp"
+            android:text="@string/txt_confirm_order"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            style="@style/MainTheme"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/MainTheme.MaxWidth"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            style="@style/MainTheme.MaxWidth"
+            android:background="@color/gray_1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/MainTheme.Title"
+                android:text="@string/txt_shipping"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                style="@style/MainTheme.MaxWidth"
+                android:layout_marginTop="1dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/MainTheme.Title"
+                    android:text="@string/txt_name"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/address"
+                    style="@style/MainTheme.Title"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:paddingTop="0dp"
+                    android:text="@string/txtaddress"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/shopName"
+                style="@style/MainTheme.Title"
+                android:layout_marginTop="10dp"
+                android:text="@string/txt_shop_name" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvCart"
+                style="@style/MainTheme.MaxWidth" />
+
+            <LinearLayout
+                style="@style/MainTheme.MaxWidth"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp">
+
+                <TextView
+                    android:id="@+id/totalCount"
+                    style="@style/MainTheme.Title"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Tổng" />
+
+                <TextView
+                    android:id="@+id/price"
+                    style="@style/MainTheme.Title"
+                    android:layout_width="wrap_content"
+                    android:text="50000" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/MainTheme.MaxWidth"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp"
+                tools:ignore="RtlSymmetry">
+
+                <TextView
+                    style="@style/MainTheme.Title"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/txt_shipping_fee" />
+
+                <TextView
+                    style="@style/MainTheme.Title"
+                    android:layout_width="wrap_content"
+                    android:text="30,000đ" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/MainTheme.MaxWidth"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp"
+                tools:ignore="RtlSymmetry">
+
+                <TextView
+                    style="@style/MainTheme.Title"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Thưởng cho tài xế [5,000đ]" />
+
+                <ImageButton
+                    android:id="@+id/btnMinus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:src="@drawable/ic_minus" />
+
+                <TextView
+                    android:id="@+id/numBonus"
+                    style="@style/MainTheme.Title"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="40dp"
+                    android:paddingStart="0dp"
+                    android:text="0" />
+
+                <ImageButton
+                    android:id="@+id/btnPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_plus" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/MainTheme.MaxWidth"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp"
+                tools:ignore="RtlSymmetry">
+
+                <TextView
+                    style="@style/MainTheme.Title"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Giao tận cửa" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchShipping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:checked="false"
+                    android:text="[5,000đ]"
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    android:theme="@style/MySwitch"
+                    app:switchPadding="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/MainTheme.MaxWidth"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp"
+                tools:ignore="RtlSymmetry">
+
+                <TextView
+                    style="@style/MainTheme.Title"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Ghi chú" />
+
+                <TextView
+                    android:id="@+id/btnNote"
+                    style="@style/MainTheme.Title"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/ic_next"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:text="Chưa có"
+                    android:textColor="@color/gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/MainTheme.MaxWidth"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp"
+                tools:ignore="RtlSymmetry">
+
+                <TextView
+                    style="@style/MainTheme.Title"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/txt_total"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/total"
+                    style="@style/MainTheme.Title"
+                    android:layout_width="wrap_content"
+                    android:text="30,000đ"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/btnOrder"
+        style="@style/MainTheme.MaxWidth.ButtonLogin"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="Đặt hàng"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password" />
+</LinearLayout>

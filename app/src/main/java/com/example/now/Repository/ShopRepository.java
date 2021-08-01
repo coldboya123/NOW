@@ -3,8 +3,10 @@ package com.example.now.Repository;
 import com.example.now.Model.ApiService.APIRequest;
 import com.example.now.Model.ApiService.RetrofitClient;
 import com.example.now.Model.Object.Food;
-import com.example.now.Model.Object.FoodComment;
+import com.example.now.Model.Object.Comment;
 import com.example.now.Model.Object.GroupFood;
+import com.example.now.Model.Object.RequestData;
+import com.example.now.Model.Object.ResponseData;
 
 import java.util.List;
 
@@ -25,8 +27,14 @@ public class ShopRepository {
         return apiRequest.getFoodbybyId(request);
     }
 
-    public Call<List<FoodComment>> getFoodComment(String request){
+    public Call<List<Comment>> getFoodComment(String request){
         return apiRequest.getFoodComment(request);
     }
+
+    public Call<List<Comment>> getShopComment(String request){
+        return apiRequest.getFoodComment(request);
+    }
+
+
 
 }

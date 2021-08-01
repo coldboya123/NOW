@@ -13,4 +13,6 @@
     <color name="primary_color">#FF2014</color>
     <color name="primary_color3">#FF918B</color>
     <color name="transparent">#00000000</color>
+    <color name="blue">#007CFF</color>
+    <color name="green">#4CAF50</color>
 </resources>

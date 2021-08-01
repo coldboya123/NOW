@@ -1,4 +1,4 @@
-package com.example.now.View.ShopView.TabView;
+package com.example.now.View.ShopView;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.now.CustomComponent.SvgRatingBar;
-import com.example.now.Model.Object.FoodComment;
+import com.example.now.Model.Object.Comment;
 import com.example.now.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -20,13 +20,12 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class RCV_FoodComment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class RCV_Comment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
-    private List<FoodComment> list;
-    private final int ITEM = 1, NULL = 0;
+    private List<Comment> list;
 
-    public RCV_FoodComment_Adapter(List<FoodComment> list) {
+    public RCV_Comment_Adapter(List<Comment> list) {
         this.list = list;
     }
 
@@ -55,7 +54,7 @@ public class RCV_FoodComment_Adapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ItemViewHolder){
-            FoodComment foodComment = list.get(position);
+            Comment foodComment = list.get(position);
             Glide.with(context).load(foodComment.getUserImage()).into(((ItemViewHolder) holder).imageView);
             ((ItemViewHolder) holder).name.setText(foodComment.getUserName());
             ((ItemViewHolder) holder).datetime.setText(foodComment.getDatetime());

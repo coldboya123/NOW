@@ -84,4 +84,12 @@ public class CartSingleton {
     public String getTotalFormated(){
         return String.format("%1$,.0f", (float) getTotal()) + " đ";
     }
+
+    public String getListFoodId(){
+        String list_id = "";
+        for (int i = 0; i < list.size(); i++) {
+            list_id += list.get(i).getId() + "/";
+        }
+        return list_id;
+    }
 }

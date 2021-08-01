@@ -28,4 +28,16 @@
     <string name="txt_repassword">Nhập lại mật khẩu</string>
     <string name="txt_register">Đăng ký</string>
     <string name="txt_login">Đăng nhập</string>
+    <string name="txt_cate">Danh mục</string>
+    <string name="txt_average_price">Giá trung bình</string>
+    <string name="txt_open_time">Giờ mở cửa</string>
+    <string name="txt_confirm_order">Xác nhận đơn hàng</string>
+    <string name="txt_shop_name">shop name</string>
+    <string name="txt_food_name">Food name</string>
+    <string name="txt_shipping_fee">Phí giao hàng</string>
+    <string name="txt_total">Tổng cộng</string>
+    <string name="txt_note">Ghi chú</string>
+    <string name="txt_done">Hoàn tất</string>
+    <string name="txt_complete">Hoàn thành</string>
+    <string name="txt_shipping">Giao hàng</string>
 </resources>

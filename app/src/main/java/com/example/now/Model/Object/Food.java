@@ -131,6 +131,10 @@ public class Food implements Serializable {
         return String.format("%1$,.0f", Float.parseFloat(price)) + " đ";
     }
 
+    public String getTotalPriceFormated() {
+        return specialPrice.equals("-1") ? String.format("%1$,.0f", Float.parseFloat(price) * numBuy) + " đ" : String.format("%1$,.0f", Float.parseFloat(specialPrice) * numBuy) + " đ";
+    }
+
     public void setPrice(String price) {
         this.price = price;
     }

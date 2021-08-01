@@ -4,9 +4,13 @@ import com.example.now.Model.Object.Banner;
 import com.example.now.Model.Object.Category;
 import com.example.now.Model.Object.Collection;
 import com.example.now.Model.Object.Food;
-import com.example.now.Model.Object.FoodComment;
+import com.example.now.Model.Object.Comment;
 import com.example.now.Model.Object.GroupFood;
+import com.example.now.Model.Object.Order;
+import com.example.now.Model.Object.RequestData;
+import com.example.now.Model.Object.ResponseData;
 import com.example.now.Model.Object.Shop;
+import com.example.now.Model.Object.UserAddress;
 
 import java.util.List;
 
@@ -16,6 +20,15 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface APIRequest {
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<ResponseData> Register(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<ResponseData> Login(@Body String request);
+
     @Headers("Content-Type: application/json")
     @POST("/now/")
     Call<List<Banner>> getHomeBanner(@Body String request);
@@ -42,6 +55,22 @@ public interface APIRequest {
 
     @Headers("Content-Type: application/json")
     @POST("/now/")
-    Call<List<FoodComment>> getFoodComment(@Body String request);
+    Call<List<Comment>> getFoodComment(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<List<Comment>> getShopComment(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<List<UserAddress>> getUserAddress(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<ResponseData> processOrder(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<List<Order>> getOrder(@Body String request);
 
 }

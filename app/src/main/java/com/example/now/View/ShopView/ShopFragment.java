@@ -11,9 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.now.Model.Object.Food;
+import com.example.now.Model.Object.Shop;
 import com.example.now.R;
+import com.example.now.View.ShopView.TabView.ShopOrderFragment;
 import com.example.now.databinding.FragmentShopBinding;
 import com.google.android.material.appbar.AppBarLayout;
+
+import java.util.Objects;
 
 public class ShopFragment extends Fragment {
 
@@ -56,10 +60,13 @@ public class ShopFragment extends Fragment {
                 binding.btnSearch.setVisibility(View.VISIBLE);
             }
         });
-
     }
 
-    public void onSelectFood(Food food){
-        ((ShopActivity)getActivity()).onSelectFood(food);
+    public void onSelectFood(Shop shop, Food food){
+        ((ShopActivity) requireActivity()).onSelectFood(shop, food);
+    }
+
+    public void onClickDelivery(Shop shop){
+        ((ShopActivity) requireActivity()).onClickDeliveryfromShopOrder(shop);
     }
 }

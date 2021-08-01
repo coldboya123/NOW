@@ -7,8 +7,10 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.now.Model.Object.Food;
-import com.example.now.Model.Object.FoodComment;
+import com.example.now.Model.Object.Comment;
 import com.example.now.Model.Object.GroupFood;
+import com.example.now.Model.Object.RequestData;
+import com.example.now.Model.Object.ResponseData;
 import com.example.now.Repository.ShopRepository;
 
 import org.jetbrains.annotations.NotNull;
@@ -23,16 +25,18 @@ public class ShopViewModel extends ViewModel {
     private final ShopRepository repository;
     private final MutableLiveData<List<GroupFood>> groupFoodLiveData;
     private final MutableLiveData<Food> foodLiveData;
-    private final MutableLiveData<List<FoodComment>> commentLiveData;
+    private final MutableLiveData<List<Comment>> foodCommentLiveData;
+    private final MutableLiveData<List<Comment>> shopCommentLiveData;
 
-    public ShopViewModel(ShopRepository repository){
+    public ShopViewModel(ShopRepository repository) {
         this.repository = repository;
         groupFoodLiveData = new MutableLiveData<>();
         foodLiveData = new MutableLiveData<>();
-        commentLiveData = new MutableLiveData<>();
+        foodCommentLiveData = new MutableLiveData<>();
+        shopCommentLiveData = new MutableLiveData<>();
     }
 
-    public LiveData<List<GroupFood>> getFoodbyShop(String request){
+    public LiveData<List<GroupFood>> getFoodbyShop(String request) {
         repository.getFoodbyShop(request)
                 .enqueue(new Callback<List<GroupFood>>() {
                     @Override
@@ -49,7 +53,7 @@ public class ShopViewModel extends ViewModel {
         return groupFoodLiveData;
     }
 
-    public LiveData<Food> getFoodbyId(String request){
+    public LiveData<Food> getFoodbyId(String request) {
         repository.getFoodbyId(request)
                 .enqueue(new Callback<Food>() {
                     @Override
@@ -65,19 +69,37 @@ public class ShopViewModel extends ViewModel {
         return foodLiveData;
     }
 
-    public LiveData<List<FoodComment>> getFoodComment(String request){
+    public LiveData<List<Comment>> getFoodComment(String request) {
         repository.getFoodComment(request)
-                .enqueue(new Callback<List<FoodComment>>() {
+                .enqueue(new Callback<List<Comment>>() {
                     @Override
-                    public void onResponse(Call<List<FoodComment>> call, Response<List<FoodComment>> response) {
-                        commentLiveData.setValue(response.body());
+                    public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
+                        foodCommentLiveData.setValue(response.body());
                     }
 
                     @Override
-                    public void onFailure(Call<List<FoodComment>> call, Throwable t) {
+                    public void onFailure(Call<List<Comment>> call, Throwable t) {
                         Log.d("bbb", "get Food Comment onFailure: " + t.getMessage());
                     }
                 });
-        return commentLiveData;
+        return foodCommentLiveData;
     }
+
+    public LiveData<List<Comment>> getShopComment(String request) {
+        repository.getShopComment(request)
+                .enqueue(new Callback<List<Comment>>() {
+                    @Override
+                    public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
+                        shopCommentLiveData.setValue(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Comment>> call, Throwable t) {
+                        Log.d("bbb", "get Shop Comment onFailure: " + t.getMessage());
+                    }
+                });
+        return shopCommentLiveData;
+    }
+
+
 }

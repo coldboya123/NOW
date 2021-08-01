@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MainTheme.MaxScreen"
     tools:context=".View.OrderView.OrderFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        style="@style/MainTheme.MaxWidth"
+        android:orientation="vertical">
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            app:tabIndicatorColor="@color/primary_color"
+            app:tabRippleColor="@color/primary_color3"
+            app:tabSelectedTextColor="@color/primary_color"
+            style="@style/MainTheme.MaxWidth"
+            app:tabTextAppearance="@style/MyTabLayout.TextAppearance"/>
 
-</FrameLayout>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            style="@style/MainTheme.MaxWidth" />
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

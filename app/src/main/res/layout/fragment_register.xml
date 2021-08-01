@@ -3,7 +3,7 @@
     style="@style/MainTheme.MaxScreen">
 
     <ImageButton
-        android:id="@+id/register_btn_back"
+        android:id="@+id/btnBack"
         style="@style/MainTheme"
         android:layout_margin="20dp"
         android:background="@null"
@@ -37,7 +37,7 @@
             app:startIconDrawable="@drawable/ic_user">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/register_txtname"
+                android:id="@+id/txtname"
                 style="@style/MainTheme.MaxScreen.TextInputEditText"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -51,7 +51,7 @@
             app:startIconDrawable="@drawable/ic_telephone">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/register_txtphone"
+                android:id="@+id/txtphone"
                 style="@style/MainTheme.MaxScreen.TextInputEditText"
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -65,7 +65,7 @@
             app:startIconDrawable="@drawable/ic_password">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/register_txtpwd"
+                android:id="@+id/txtpwd"
                 style="@style/MainTheme.MaxScreen.TextInputEditText"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -79,13 +79,13 @@
             app:startIconDrawable="@drawable/ic_password">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/register_txtrepwd"
+                android:id="@+id/txtrepwd"
                 style="@style/MainTheme.MaxScreen.TextInputEditText"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/register_btn_reg"
+            android:id="@+id/btnRegister"
             style="@style/MainTheme.MaxWidth.ButtonLogin"
             android:text="@string/txt_register"
             app:layout_constraintStart_toStartOf="parent"
