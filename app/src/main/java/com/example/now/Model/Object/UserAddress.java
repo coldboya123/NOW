@@ -3,6 +3,8 @@ package com.example.now.Model.Object;
 import com.google.gson.annotations.SerializedName;
 
 public class UserAddress {
+    public UserAddress() {
+    }
 
     @SerializedName("id")
     private String id;
@@ -18,6 +20,8 @@ public class UserAddress {
     private String phone;
     @SerializedName("status")
     private String status;
+    @SerializedName("note")
+    private String note;
 
     @Override
     public String toString() {
@@ -29,10 +33,11 @@ public class UserAddress {
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", status='" + status + '\'' +
+                ", note='" + note + '\'' +
                 '}';
     }
 
-    public UserAddress(String id, String userId, String title, String address, String name, String phone, String status) {
+    public UserAddress(String id, String userId, String title, String address, String name, String phone, String status, String note) {
         this.id = id;
         this.userId = userId;
         this.title = title;
@@ -40,6 +45,15 @@ public class UserAddress {
         this.name = name;
         this.phone = phone;
         this.status = status;
+        this.note = note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getNote() {
+        return note;
     }
 
     public String getId() {

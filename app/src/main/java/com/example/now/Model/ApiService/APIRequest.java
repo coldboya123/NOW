@@ -67,6 +67,10 @@ public interface APIRequest {
 
     @Headers("Content-Type: application/json")
     @POST("/now/")
+    Call<ResponseData> addUserAddress(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
     Call<ResponseData> processOrder(@Body String request);
 
     @Headers("Content-Type: application/json")

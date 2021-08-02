@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,11 +16,6 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.now.Model.ApiService.CartSingleton;
@@ -32,8 +30,6 @@ import com.example.now.databinding.FragmentFoodBinding;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Objects;
 
 public class FoodFragment extends Fragment {
 
@@ -155,8 +151,6 @@ public class FoodFragment extends Fragment {
                 ((ShopActivity) requireActivity()).onClickDeliveryfromFood(shop);
             }
         });
-
-
     }
 
     @SuppressLint("SetTextI18n")

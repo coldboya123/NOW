@@ -23,12 +23,12 @@ import com.example.now.Model.ApiService.CartSingleton;
 import com.example.now.Model.Object.Shop;
 import com.example.now.Model.Object.UserAddress;
 import com.example.now.R;
+import com.example.now.Repository.AddressRepository;
 import com.example.now.Repository.PaymentRepository;
-import com.example.now.Repository.ShopRepository;
 import com.example.now.Repository.UserRepository;
 import com.example.now.View.ShopView.ShopActivity;
+import com.example.now.ViewModel.AddressViewModel;
 import com.example.now.ViewModel.PaymentViewModel;
-import com.example.now.ViewModel.ShopViewModel;
 import com.example.now.ViewModel.UserViewModel;
 import com.example.now.databinding.FragmentPaymentBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -46,8 +46,9 @@ public class PaymentFragment extends Fragment {
     private String note;
     private PaymentViewModel shopViewModel;
     private JSONObject object;
-    private UserViewModel userViewModel;
+    private AddressViewModel addressViewModel;
     private String token;
+    private String address_id = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,18 +86,18 @@ public class PaymentFragment extends Fragment {
             }
         }.create(PaymentViewModel.class);
 
-        userViewModel = new ViewModelProvider.Factory() {
+        addressViewModel = new ViewModelProvider.Factory() {
             @NonNull
             @NotNull
             @Override
             public <T extends ViewModel> T create(@NonNull @NotNull Class<T> modelClass) {
-                return (T) new UserViewModel(new UserRepository());
+                return (T) new AddressViewModel(new AddressRepository());
             }
-        }.create(UserViewModel.class);
+        }.create(AddressViewModel.class);
     }
 
     @SuppressLint("SetTextI18n")
-    private void observeData(){
+    private void observeData() {
         object = new JSONObject();
         try {
             object.put("function", "getUserAddress");
@@ -104,14 +105,22 @@ public class PaymentFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        userViewModel.getUserAddress(object.toString())
+        addressViewModel.getUserAddress(object.toString())
                 .observe(getViewLifecycleOwner(), userAddresses -> {
-                    for (int i = 0; i < userAddresses.size(); i++) {
-                        if (userAddresses.get(i).getStatus().equals("1")){
-                            UserAddress address = userAddresses.get(i);
-                            binding.name.setText(address.getName() + " - " + address.getPhone());
-                            binding.address.setText(address.getAddress());
-                            break;
+                    if (CartSingleton.getInstance().getSelectedAddress().getId() != null) {
+                        UserAddress address = CartSingleton.getInstance().getSelectedAddress();
+                        binding.name.setText(address.getName() + " - " + address.getPhone());
+                        binding.address.setText(address.getAddress());
+                        address_id = address.getId();
+                    } else {
+                        for (int i = 0; i < userAddresses.size(); i++) {
+                            if (userAddresses.get(i).getStatus().equals("1")) {
+                                UserAddress address = userAddresses.get(i);
+                                binding.name.setText(address.getName() + " - " + address.getPhone());
+                                binding.address.setText(address.getAddress());
+                                address_id = address.getId();
+                                break;
+                            }
                         }
                     }
                 });
@@ -119,6 +128,11 @@ public class PaymentFragment extends Fragment {
 
     @SuppressLint("SetTextI18n")
     private void event() {
+
+        binding.blockAddress.setOnClickListener(v -> {
+            ((ShopActivity) requireActivity()).onClickChangeAddress();
+        });
+
         binding.btnPlus.setOnClickListener(v -> {
             numBonus++;
             binding.numBonus.setText(numBonus + "");
@@ -127,7 +141,7 @@ public class PaymentFragment extends Fragment {
         });
 
         binding.btnMinus.setOnClickListener(v -> {
-            if (numBonus > 0){
+            if (numBonus > 0) {
                 numBonus--;
                 binding.numBonus.setText(numBonus + "");
                 total -= 5000;
@@ -136,7 +150,7 @@ public class PaymentFragment extends Fragment {
         });
 
         binding.switchShipping.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked){
+            if (isChecked) {
                 buttonView.setTextColor(getResources().getColor(R.color.primary_color, null));
                 total += 5000;
                 binding.total.setText(formatPrice(total));
@@ -176,6 +190,7 @@ public class PaymentFragment extends Fragment {
                 object.put("function", "processOrder");
                 object.put("token", token);
                 object.put("shop_id", shop.getId());
+                object.put("address_id", address_id);
                 object.put("list_food", CartSingleton.getInstance().getListFoodId());
                 object.put("totalprice", total);
                 object.put("ship", 30000);
@@ -184,7 +199,7 @@ public class PaymentFragment extends Fragment {
             }
             shopViewModel.processOrder(object.toString())
                     .observe(getViewLifecycleOwner(), requestResult -> {
-                        if (requestResult.getResult().equals("1")){
+                        if (requestResult.getResult().equals("1")) {
                             ((ShopActivity) requireActivity()).onClickOrder();
                             CartSingleton.getInstance().clearCart();
                         } else {
@@ -198,7 +213,8 @@ public class PaymentFragment extends Fragment {
         });
     }
 
-    private String formatPrice(int price){
+    private String formatPrice(int price) {
         return String.format("%1$,.0f", (float) price) + " đ";
     }
+
 }

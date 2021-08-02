@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MainTheme.MaxScreen"
+    android:orientation="vertical"
+    tools:context=".View.AddressView.ChooseAddressFragment"
+    android:background="@color/gray_1">
+
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/MainTheme.MaxWidth">
+
+        <TextView
+            android:id="@+id/toolbar"
+            style="@style/MainTheme.Title"
+            android:gravity="center"
+            android:paddingStart="0dp"
+            android:text="@string/txtaddress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            style="@style/MainTheme"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView style="@style/MainTheme.MaxWidth">
+
+        <LinearLayout
+            style="@style/MainTheme.MaxWidth"
+            android:orientation="vertical"
+            android:background="@color/gray_1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                style="@style/MainTheme.MaxWidth"
+                android:background="@color/gray_1" />
+
+            <Button
+                android:id="@+id/btnAddAddress"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/background_btnlogout"
+                android:text="@string/txt_add_address"
+                android:textAllCaps="false"
+                android:textColor="@color/primary_color" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

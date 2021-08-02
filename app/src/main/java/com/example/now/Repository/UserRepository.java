@@ -15,7 +15,5 @@ public class UserRepository {
         apiRequest = RetrofitClient.getInstance().getAPIRequest();
     }
 
-    public Call<List<UserAddress>> getUserAddress(String request){
-        return apiRequest.getUserAddress(request);
-    }
+
 }

@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txtdelivery_to">Giao hàng đến:</string>
-    <string name="txtaddress">Address</string>
+    <string name="txtaddress">Địa chỉ</string>
     <string name="txtsearchBar">Tìm kiếm địa chỉ, món ăn, thức uống ...</string>
     <string name="txtCollection">Bộ sưu tập</string>
     <string name="txtNoComment">Không ai "bình luận" hết vậy ta?</string>
@@ -40,4 +40,5 @@
     <string name="txt_done">Hoàn tất</string>
     <string name="txt_complete">Hoàn thành</string>
     <string name="txt_shipping">Giao hàng</string>
+    <string name="txt_add_address">Thêm địa chỉ mới</string>
 </resources>
