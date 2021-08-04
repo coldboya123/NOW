@@ -35,6 +35,8 @@ public class ShopRepository {
         return apiRequest.getFoodComment(request);
     }
 
-
+    public Call<ResponseData> saveShop(String request){
+        return apiRequest.saveShop(request);
+    }
 
 }

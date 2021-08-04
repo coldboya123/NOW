@@ -95,21 +95,21 @@ public class FoodFragment extends Fragment {
         }
 
         //get Food Comment
-        object = new JSONObject();
-        try {
-            object.put("function", "getFoodComment");
-            object.put("id", food.getId());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        viewModel.getFoodComment(object.toString())
-                .observe(getViewLifecycleOwner(), foodComments -> {
-                    if (foodComments.size() == 0) {
-                        foodComments.add(null);
-                    }
-                    binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                    binding.recyclerView.setAdapter(new RCV_Comment_Adapter(foodComments));
-                });
+//        object = new JSONObject();
+//        try {
+//            object.put("function", "getFoodComment");
+//            object.put("id", food.getId());
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        viewModel.getFoodComment(object.toString())
+//                .observe(getViewLifecycleOwner(), foodComments -> {
+//                    if (foodComments.size() == 0) {
+//                        foodComments.add(null);
+//                    }
+//                    binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+//                    binding.recyclerView.setAdapter(new RCV_Comment_Adapter(foodComments));
+//                });
     }
 
     @SuppressLint("SetTextI18n")

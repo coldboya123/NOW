@@ -10,10 +10,14 @@
             android:id="@+id/collapsingToolbar"
             style="@style/MainTheme.MaxWidth"
             android:layout_height="200dp"
-            android:background="@drawable/chenfood"
             app:contentScrim="@color/primary_color"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
+            <ImageView
+                android:id="@+id/imageShop"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/chenfood"/>
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"

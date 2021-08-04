@@ -82,6 +82,7 @@ public class ShopCommentFragment extends Fragment {
                         setProgress(binding.progress3, binding.num3, comments, 3);
                         setProgress(binding.progress2, binding.num2, comments, 2);
                         setProgress(binding.progress1, binding.num1, comments, 1);
+                        binding.avarageRating.setRating(getTotalRate(comments));
                         binding.blockNoComment.setVisibility(View.GONE);
                     } else {
                         binding.blockRating.setVisibility(View.GONE);

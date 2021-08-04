@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MainTheme.MaxScreen"
+    android:background="@color/gray_1"
+    android:orientation="vertical"
+    tools:context=".View.OrderView.OrderDetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/MainTheme.MaxWidth">
+
+        <TextView
+            android:id="@+id/toolbar"
+            style="@style/MainTheme.Title"
+            android:gravity="center"
+            android:paddingStart="0dp"
+            android:text="@string/txt_order_detail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            style="@style/MainTheme"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/MainTheme.MaxWidth"
+        android:layout_marginTop="1dp">
+
+        <LinearLayout
+            style="@style/MainTheme.MaxWidth"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/shopName"
+                style="@style/MainTheme.Title"
+                android:text="@string/txt_shop_name" />
+
+            <TextView
+                android:id="@+id/price1"
+                style="@style/MainTheme.TextNormal"
+                android:paddingStart="10dp"
+                android:text="@string/txt_average_price" />
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/MainTheme.TextNormal"
+                android:paddingStart="10dp"
+                android:text="@string/txt_name" />
+
+            <TextView
+                style="@style/MainTheme.Title"
+                android:text="@string/txt_delivery_to" />
+
+            <TextView
+                android:id="@+id/address"
+                style="@style/MainTheme.TextNormal"
+                android:paddingStart="10dp"
+                android:text="@string/txtaddress" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@color/gray_1" />
+
+            <TextView
+                android:id="@+id/btnShopName"
+                style="@style/MainTheme.Title"
+                android:drawableEnd="@drawable/ic_next"
+                android:text="@string/txt_shop_name" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                style="@style/MainTheme.MaxWidth" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@color/gray_1" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                style="@style/MainTheme.MaxWidth"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/count"
+                    style="@style/MainTheme.Title"
+                    android:layout_width="wrap_content"
+                    android:paddingStart="0dp"
+                    android:text="@string/txt_tota"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/price2"
+                    style="@style/MainTheme.Title"
+                    android:layout_width="wrap_content"
+                    android:text="@string/txt_average_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/MainTheme.TextNormal"
+                    android:text="@string/txt_shipping_fee"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/count" />
+
+                <TextView
+                    android:id="@+id/shippingFee"
+                    style="@style/MainTheme.TextNormal"
+                    android:text="30,000đ"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/price2" />
+
+                <TextView
+                    android:id="@+id/totalPrice"
+                    style="@style/MainTheme.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/txt_total"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/shippingFee" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

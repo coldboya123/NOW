@@ -191,6 +191,14 @@
         <item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar.Small</item>
     </style>
 
+    <style name="MainTheme.CustomRatingBar_large" parent="MainTheme">
+        <item name="android:progressDrawable">@drawable/rating_bar_large</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:numStars">5</item>
+        <item name="android:stepSize">1</item>
+        <item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>
+    </style>
+
     <style name="MainTheme.ProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">10dp</item>

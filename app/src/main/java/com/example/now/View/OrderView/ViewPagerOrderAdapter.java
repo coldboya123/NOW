@@ -37,7 +37,7 @@ public class ViewPagerOrderAdapter extends FragmentPagerAdapter {
             case 0:
                 return "Đang đến";
             case 1:
-                return "Lích sử";
+                return "Lịch sử";
         }
         return null;
     }

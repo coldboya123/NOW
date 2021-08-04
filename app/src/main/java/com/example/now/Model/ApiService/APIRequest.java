@@ -7,6 +7,7 @@ import com.example.now.Model.Object.Food;
 import com.example.now.Model.Object.Comment;
 import com.example.now.Model.Object.GroupFood;
 import com.example.now.Model.Object.Order;
+import com.example.now.Model.Object.OrderDetail;
 import com.example.now.Model.Object.RequestData;
 import com.example.now.Model.Object.ResponseData;
 import com.example.now.Model.Object.Shop;
@@ -63,6 +64,10 @@ public interface APIRequest {
 
     @Headers("Content-Type: application/json")
     @POST("/now/")
+    Call<ResponseData> saveShop(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
     Call<List<UserAddress>> getUserAddress(@Body String request);
 
     @Headers("Content-Type: application/json")
@@ -76,5 +81,17 @@ public interface APIRequest {
     @Headers("Content-Type: application/json")
     @POST("/now/")
     Call<List<Order>> getOrder(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<OrderDetail> getOrderDetail(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<List<Shop>> getShopSaved(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<ResponseData> processComment(@Body String request);
 
 }

@@ -136,13 +136,13 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/gray_1" />
 
-            <TextView
-                style="@style/MainTheme.Title"
-                android:text="Đánh giá" />
+<!--            <TextView-->
+<!--                style="@style/MainTheme.Title"-->
+<!--                android:text="Đánh giá" />-->
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                style="@style/MainTheme.MaxWidth" />
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/recyclerView"-->
+<!--                style="@style/MainTheme.MaxWidth" />-->
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

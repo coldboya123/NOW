@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/MainTheme.MaxScreen"
+    android:background="@color/gray_1"
+    android:orientation="vertical"
     tools:context=".View.SavedView.SavedFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        style="@style/MainTheme.Title"
+        android:gravity="center"
+        android:paddingStart="0dp"
+        android:text="Đã Lưu"
+        android:textSize="20sp" />
 
-</FrameLayout>
+    <androidx.core.widget.NestedScrollView
+        style="@style/MainTheme.MaxWidth"
+        android:layout_marginTop="1dp">
+
+        <LinearLayout
+            style="@style/MainTheme.MaxWidth"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                style="@style/MainTheme.MaxWidth" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

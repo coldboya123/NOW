@@ -2,13 +2,18 @@ package com.example.now.Model.Object;
 
 import android.annotation.SuppressLint;
 
+import com.example.now.Model.Constant.Constant;
 import com.google.gson.annotations.SerializedName;
 
-public class Order {
+import java.io.Serializable;
+
+public class Order implements Serializable {
     @SerializedName("id")
     private String id;
     @SerializedName("shop_id")
     private String shopId;
+    @SerializedName("address")
+    private String shopAddress;
     @SerializedName("user_id")
     private String userId;
     @SerializedName("list_food")
@@ -23,12 +28,17 @@ public class Order {
     private String ship;
     @SerializedName("name")
     private String name;
+    @SerializedName("count")
+    private String count;
+    @SerializedName("image")
+    private String image;
 
     @Override
     public String toString() {
         return "Order{" +
                 "id='" + id + '\'' +
                 ", shopId='" + shopId + '\'' +
+                ", shopAddress='" + shopAddress + '\'' +
                 ", userId='" + userId + '\'' +
                 ", listFood='" + listFood + '\'' +
                 ", time='" + time + '\'' +
@@ -36,12 +46,15 @@ public class Order {
                 ", price='" + price + '\'' +
                 ", ship='" + ship + '\'' +
                 ", name='" + name + '\'' +
+                ", count='" + count + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 
-    public Order(String id, String shopId, String userId, String listFood, String time, String status, String price, String ship, String name) {
+    public Order(String id, String shopId, String shopAddress, String userId, String listFood, String time, String status, String price, String ship, String name, String count, String image) {
         this.id = id;
         this.shopId = shopId;
+        this.shopAddress = shopAddress;
         this.userId = userId;
         this.listFood = listFood;
         this.time = time;
@@ -49,6 +62,36 @@ public class Order {
         this.price = price;
         this.ship = ship;
         this.name = name;
+        this.count = count;
+        this.image = image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return Constant.SERVER_URL + "now/image/" + image;
+    }
+
+    public void setCount(String count) {
+        this.count = count;
+    }
+
+    public String getCount() {
+        return count;
+    }
+
+    public String getCountFormated() {
+        return "(" + count + "phần)";
+    }
+
+    public void setShopAddress(String shopAddress) {
+        this.shopAddress = shopAddress;
+    }
+
+    public String getShopAddress() {
+        return shopAddress;
     }
 
     public void setName(String name) {

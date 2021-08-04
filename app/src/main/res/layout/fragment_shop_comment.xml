@@ -27,6 +27,7 @@
                 android:textSize="25sp" />
 
             <com.example.now.CustomComponent.SvgRatingBar
+                android:id="@+id/avarageRating"
                 style="@style/MainTheme.CustomRatingBar"
                 android:layout_gravity="center_horizontal"
                 android:rating="5" />

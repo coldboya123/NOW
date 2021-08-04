@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -184,28 +185,34 @@ public class PaymentFragment extends Fragment {
         });
 
         binding.btnOrder.setOnClickListener(v -> {
-            String token = requireContext().getSharedPreferences("data", Context.MODE_PRIVATE).getString("token", "");
-            object = new JSONObject();
-            try {
-                object.put("function", "processOrder");
-                object.put("token", token);
-                object.put("shop_id", shop.getId());
-                object.put("address_id", address_id);
-                object.put("list_food", CartSingleton.getInstance().getListFoodId());
-                object.put("totalprice", total);
-                object.put("ship", 30000);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (address_id.isEmpty()) {
+                Toast.makeText(getContext(), "Chưa chọn địa chỉ!", Toast.LENGTH_SHORT).show();
+            } else {
+                String token = requireContext().getSharedPreferences("data", Context.MODE_PRIVATE).getString("token", "");
+                object = new JSONObject();
+                try {
+                    object.put("function", "processOrder");
+                    object.put("token", token);
+                    object.put("shop_id", shop.getId());
+                    object.put("address_id", address_id);
+                    object.put("list_food", CartSingleton.getInstance().getListFoodId());
+                    object.put("list_numBuy", CartSingleton.getInstance().getListNumBuy());
+                    object.put("totalprice", total);
+                    object.put("ship", 30000);
+                    object.put("count", CartSingleton.getInstance().getItemCount());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                shopViewModel.processOrder(object.toString())
+                        .observe(getViewLifecycleOwner(), requestResult -> {
+                            if (requestResult.getResult().equals("1")) {
+                                ((ShopActivity) requireActivity()).onClickOrder();
+                                CartSingleton.getInstance().clearCart();
+                            } else {
+                                Toast.makeText(getContext(), requestResult.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
-            shopViewModel.processOrder(object.toString())
-                    .observe(getViewLifecycleOwner(), requestResult -> {
-                        if (requestResult.getResult().equals("1")) {
-                            ((ShopActivity) requireActivity()).onClickOrder();
-                            CartSingleton.getInstance().clearCart();
-                        } else {
-                            Toast.makeText(getContext(), requestResult.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
         });
 
         binding.btnBack.setOnClickListener(v -> {

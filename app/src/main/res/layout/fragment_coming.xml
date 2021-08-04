@@ -3,10 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MainTheme.MaxScreen"
     android:orientation="vertical"
+    android:background="@color/gray_1"
     tools:context=".View.OrderView.TabView.ComingFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        style="@style/MainTheme.MaxWidth"/>
+        style="@style/MainTheme.MaxWidth"
+        android:paddingHorizontal="10dp"
+        android:background="@color/gray_1"/>
 
 </LinearLayout>

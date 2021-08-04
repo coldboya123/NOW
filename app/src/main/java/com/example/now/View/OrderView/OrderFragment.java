@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.now.Model.Object.Order;
 import com.example.now.R;
+import com.example.now.View.MainView.MainActivity;
 import com.example.now.databinding.FragmentOrderBinding;
 
 public class OrderFragment extends Fragment {
@@ -31,6 +33,10 @@ public class OrderFragment extends Fragment {
     private void mapView() {
         binding.viewPager.setAdapter(new ViewPagerOrderAdapter(getChildFragmentManager()));
         binding.tabLayout.setupWithViewPager(binding.viewPager);
+    }
+
+    public void notifiOrder(){
+        Log.d("bbb", "notifiOrder: " + getChildFragmentManager().getFragments().toString());
     }
 
 }

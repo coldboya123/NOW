@@ -101,6 +101,14 @@ public class CartSingleton {
         return list_id;
     }
 
+    public String getListNumBuy(){
+        String list_numBuy = "";
+        for (int i = 0; i < foodList.size(); i++) {
+            list_numBuy += foodList.get(i).getNumBuy() + "/";
+        }
+        return list_numBuy;
+    }
+
     public void setSelectedAddress(UserAddress address){
         this.address = address;
     }

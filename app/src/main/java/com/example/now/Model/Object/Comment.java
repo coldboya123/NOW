@@ -8,8 +8,8 @@ public class Comment {
 
     @SerializedName("id")
     private String id;
-    @SerializedName("food_id")
-    private String foodId;
+    @SerializedName("shop_id")
+    private String shopId;
     @SerializedName("user_id")
     private String userId;
     @SerializedName("comment")
@@ -27,7 +27,7 @@ public class Comment {
     public String toString() {
         return "FoodComment{" +
                 "id='" + id + '\'' +
-                ", foodId='" + foodId + '\'' +
+                ", foodId='" + shopId + '\'' +
                 ", userId='" + userId + '\'' +
                 ", comment='" + comment + '\'' +
                 ", rate='" + rate + '\'' +
@@ -37,9 +37,9 @@ public class Comment {
                 '}';
     }
 
-    public Comment(String id, String foodId, String userId, String comment, String rate, String datetime, String userName, String userImage) {
+    public Comment(String id, String shopId, String userId, String comment, String rate, String datetime, String userName, String userImage) {
         this.id = id;
-        this.foodId = foodId;
+        this.shopId = shopId;
         this.userId = userId;
         this.comment = comment;
         this.rate = rate;
@@ -56,12 +56,12 @@ public class Comment {
         this.id = id;
     }
 
-    public String getFoodId() {
-        return foodId;
+    public String getShopId() {
+        return shopId;
     }
 
-    public void setFoodId(String foodId) {
-        this.foodId = foodId;
+    public void setShopId(String shopId) {
+        this.shopId = shopId;
     }
 
     public String getUserId() {

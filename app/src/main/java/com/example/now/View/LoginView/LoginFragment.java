@@ -77,6 +77,7 @@ public class LoginFragment extends Fragment {
                             sharedPreferences.edit()
                                     .putString("token", loginResult.getResult())
                                     .putString("name", loginResult.getName())
+                                    .putString("id", loginResult.getId())
                                     .apply();
                             requireContext().startActivity(new Intent(requireContext(), MainActivity.class));
                             requireActivity().finish();

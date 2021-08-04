@@ -1,5 +1,6 @@
 package com.example.now.View.OrderView.TabView;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,12 +10,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.now.R;
 import com.example.now.Repository.OrderRepository;
+import com.example.now.View.OrderView.OrderFragment;
 import com.example.now.View.OrderView.RCV_Order_Adapter;
 import com.example.now.ViewModel.OrderViewModel;
 import com.example.now.databinding.FragmentComingBinding;
@@ -28,6 +31,8 @@ public class ComingFragment extends Fragment {
     private FragmentComingBinding binding;
     private OrderViewModel viewModel;
     private JSONObject object;
+    private String token;
+    private RCV_Order_Adapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +47,8 @@ public class ComingFragment extends Fragment {
     }
 
     private void mapView() {
+        token = requireContext().getSharedPreferences("data", Context.MODE_PRIVATE).getString("token", "");
+
         viewModel = new ViewModelProvider.Factory() {
             @NonNull
             @NotNull
@@ -53,18 +60,27 @@ public class ComingFragment extends Fragment {
     }
 
     private void observeData() {
-        object = new JSONObject();
-        try {
-            object.put("function", "getOrder");
-            object.put("status", "0");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        if (!token.isEmpty()){
+            object = new JSONObject();
+            try {
+                object.put("function", "getOrder");
+                object.put("token", token);
+                object.put("status", "0");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
-        viewModel.getOrder(object.toString())
-                .observe(getViewLifecycleOwner(), orders -> {
-                    binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                    binding.recyclerView.setAdapter(new RCV_Order_Adapter(orders));
-                });
+            viewModel.getOrder(object.toString())
+                    .observe(getViewLifecycleOwner(), orders -> {
+                        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+                        adapter = new RCV_Order_Adapter(orders);
+                        binding.recyclerView.setAdapter(adapter);
+
+                    });
+        }
+    }
+
+    public void notifyDataSetChange(){
+        adapter.notifyDataSetChanged();
     }
 }

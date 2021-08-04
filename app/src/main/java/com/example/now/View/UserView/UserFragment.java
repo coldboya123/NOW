@@ -39,7 +39,7 @@ public class UserFragment extends Fragment {
     private void mapView() {
         preferences = requireContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         token = preferences.getString("token", "");
-        if (token.isEmpty()){
+        if (token.isEmpty()) {
             binding.btnLogin.setVisibility(View.VISIBLE);
             binding.userName.setVisibility(View.GONE);
             binding.btnLogout.setVisibility(View.GONE);
@@ -58,9 +58,9 @@ public class UserFragment extends Fragment {
         });
 
         binding.btnLogout.setOnClickListener(v -> {
-            preferences.edit().remove("token").remove("name").apply();
-            requireActivity().startActivity(new Intent(requireContext(), MainActivity.class));
+            preferences.edit().remove("token").remove("name").remove("id").apply();
             requireActivity().finish();
+            requireActivity().startActivity(new Intent(requireContext(), MainActivity.class));
         });
     }
 }

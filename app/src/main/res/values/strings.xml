@@ -41,4 +41,8 @@
     <string name="txt_complete">Hoàn thành</string>
     <string name="txt_shipping">Giao hàng</string>
     <string name="txt_add_address">Thêm địa chỉ mới</string>
+    <string name="txt_order_detail">Chi tiết đơn hàng</string>
+    <string name="txt_delivery_to">Giao đến</string>
+    <string name="txt_tota">Tổng</string>
+    <string name="txt_rating">Đánh giá</string>
 </resources>

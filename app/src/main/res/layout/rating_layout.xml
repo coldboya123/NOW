@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MainTheme.MaxWidth"
+    android:background="@color/gray_1"
     android:orientation="vertical"
-    android:background="@color/gray_1">
+    android:paddingBottom="50dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/MainTheme.MaxWidth">
 
@@ -28,27 +29,38 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.example.now.CustomComponent.SvgRatingBar
+        android:id="@+id/ratingBar"
+        style="@style/MainTheme.CustomRatingBar_large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:numStars="5" />
+
     <EditText
-        android:id="@+id/txtNote"
+        android:id="@+id/txtComment"
         style="@style/MainTheme.MaxWidth"
         android:layout_height="200dp"
-        android:inputType="textMultiLine"
-        android:hint="Ghi chú ..."
-        android:gravity="top|left"
-        tools:ignore="RtlHardcoded"
-        android:padding="10dp"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/outline_background"/>
+        android:layout_marginTop="50dp"
+        android:background="@drawable/outline_background"
+        android:gravity="top|left"
+        android:hint="Nhận xét ..."
+        android:inputType="textMultiLine"
+        android:padding="10dp"
+        tools:ignore="RtlHardcoded" />
 
     <Button
         android:id="@+id/btnDone"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/background_btnlogout"
-        android:layout_margin="10dp"
-        android:text="@string/txt_done"
+        android:text="@string/txt_rating"
         android:textAllCaps="false"
         android:textColor="@color/primary_color"
-        style="?android:attr/borderlessButtonStyle"/>
+        android:textSize="16sp" />
 </LinearLayout>

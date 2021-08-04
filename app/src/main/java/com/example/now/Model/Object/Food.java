@@ -31,6 +31,7 @@ public class Food implements Serializable {
     private String tag;
     @SerializedName("shop")
     private String shop;
+    @SerializedName("numBuy")
     private int numBuy;
 
     public void setNumBuy(int numBuy) {
