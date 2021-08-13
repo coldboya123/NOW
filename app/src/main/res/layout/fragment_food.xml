@@ -5,7 +5,7 @@
     style="@style/MainTheme.MaxScreen"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".View.ShopView.FoodFragment">
+    tools:context=".View.ShopView.Food.FoodFragment">
 
     <LinearLayout
         style="@style/MainTheme.MaxWidth"

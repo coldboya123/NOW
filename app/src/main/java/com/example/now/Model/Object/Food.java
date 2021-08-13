@@ -42,20 +42,20 @@ public class Food implements Serializable {
         return numBuy;
     }
 
-    public Food(String id, String shopId, String parentId, String name, String price, String specialPrice, String numSelled, String image, String detail, String status, String tag, int numBuy) {
-        this.id = id;
-        this.shopId = shopId;
-        this.parentId = parentId;
-        this.name = name;
-        this.price = price;
-        this.specialPrice = specialPrice;
-        this.numSelled = numSelled;
-        this.image = image;
-        this.detail = detail;
-        this.status = status;
-        this.tag = tag;
-        this.numBuy = numBuy;
-    }
+//    public Food(String id, String shopId, String parentId, String name, String price, String specialPrice, String numSelled, String image, String detail, String status, String tag, int numBuy) {
+//        this.id = id;
+//        this.shopId = shopId;
+//        this.parentId = parentId;
+//        this.name = name;
+//        this.price = price;
+//        this.specialPrice = specialPrice;
+//        this.numSelled = numSelled;
+//        this.image = image;
+//        this.detail = detail;
+//        this.status = status;
+//        this.tag = tag;
+//        this.numBuy = numBuy;
+//    }
 
     @Override
     public String toString() {

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MainTheme.MaxWidth"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/dialog_changesex_title"
+        style="@style/MainTheme.Title"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/txt_sex" />
+
+    <LinearLayout
+        android:id="@+id/block_male"
+        style="@style/MainTheme.MaxWidth"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txtMale"
+            style="@style/MainTheme.TextNormal"
+            android:layout_weight="1"
+            android:text="Nam" />
+
+        <ImageView
+            android:id="@+id/checkmale"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_check_red" />
+    </LinearLayout>
+
+    <View
+        style="@style/MainTheme.MaxWidth"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="15dp"
+        android:background="@color/gray_1" />
+
+    <LinearLayout
+        android:id="@+id/block_female"
+        style="@style/MainTheme.MaxWidth"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txtFemale"
+            style="@style/MainTheme.TextNormal"
+            android:layout_weight="1"
+            android:text="Nữ" />
+
+        <ImageView
+            android:id="@+id/checkfemale"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:src="@drawable/ic_check_red"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <View
+        style="@style/MainTheme.MaxWidth"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="15dp"
+        android:background="@color/gray_1" />
+
+    <LinearLayout
+        android:id="@+id/block_other"
+        style="@style/MainTheme.MaxWidth"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txtOther"
+            style="@style/MainTheme.TextNormal"
+            android:layout_weight="1"
+            android:text="Khác" />
+
+        <ImageView
+            android:id="@+id/checkother"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_red"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+</LinearLayout>

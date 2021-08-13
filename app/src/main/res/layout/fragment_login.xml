@@ -39,7 +39,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtPhone"
                 style="@style/MainTheme.MaxScreen.TextInputEditText"
-                android:inputType="text"
+                android:inputType="phone"
                 android:padding="0dp" />
         </com.google.android.material.textfield.TextInputLayout>
 

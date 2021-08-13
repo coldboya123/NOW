@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MainTheme.MaxScreen"
     android:orientation="vertical"
-    tools:context=".View.LoginView.RegisterSuccessFragment">
+    tools:context=".View.LoginView.Activity.adapter.RegisterSuccessFragment">
 
     <TextView
         style="@style/MainTheme.Title"

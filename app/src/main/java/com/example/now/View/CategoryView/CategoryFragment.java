@@ -1,6 +1,11 @@
 package com.example.now.View.CategoryView;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.core.widget.NestedScrollView;
@@ -11,19 +16,14 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.now.Model.Constant.Constant;
 import com.example.now.Model.Object.Category;
 import com.example.now.Model.Object.Shop;
 import com.example.now.R;
 import com.example.now.Repository.HomeRepository;
-import com.example.now.View.HomeView.HomeFragment;
-import com.example.now.View.HomeView.RCV_HomeCollection_Adapter;
-import com.example.now.View.HomeView.RCV_HomeShop_Adapter;
+import com.example.now.View.Adapter.RCV_Shop_Adapter;
+import com.example.now.View.HomeView.HomeContent.adapter.RCV_HomeCollection_Adapter;
+import com.example.now.View.SearchView.SearchActivity;
 import com.example.now.ViewModel.HomeViewModel;
 import com.example.now.databinding.FragmentCategoryBinding;
 
@@ -37,17 +37,16 @@ import java.util.List;
 public class CategoryFragment extends Fragment {
 
     private FragmentCategoryBinding binding;
-    private Category category;
     private HomeViewModel viewModel;
     private JSONObject object;
     private int page = 1;
-    private List<Shop> shopList = new ArrayList<>();
-    private RCV_HomeShop_Adapter adapter;
+    private final List<Shop> shopList = new ArrayList<>();
+    private RCV_Shop_Adapter adapter;
     private boolean isLast = false;
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentCategoryBinding.inflate(inflater, container, false);
@@ -70,6 +69,7 @@ public class CategoryFragment extends Fragment {
         }.create(HomeViewModel.class);
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private void observeData() {
         //get Collection
         object = new JSONObject();
@@ -83,7 +83,7 @@ public class CategoryFragment extends Fragment {
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
                     DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(binding.rcvCollection.getContext(),
                             layoutManager.getOrientation());
-                    dividerItemDecoration.setDrawable(getActivity().getDrawable(R.drawable.space_between_item));
+                    dividerItemDecoration.setDrawable(requireActivity().getDrawable(R.drawable.space_between_item));
                     binding.rcvCollection.addItemDecoration(dividerItemDecoration);
                     binding.rcvCollection.setLayoutManager(layoutManager);
                     binding.rcvCollection.setAdapter(new RCV_HomeCollection_Adapter(collections));
@@ -101,25 +101,24 @@ public class CategoryFragment extends Fragment {
         viewModel.getHomeShop(object.toString())
                 .observe(getViewLifecycleOwner(), shops -> {
                     shopList.addAll(shops);
-                    adapter = new RCV_HomeShop_Adapter(shopList);
+                    adapter = new RCV_Shop_Adapter(shopList);
                     binding.rcvShop.setAdapter(adapter);
                     binding.rcvShop.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                    Log.d("bbb", "loadmore: " + shopList.size());
                 });
     }
 
     private void event() {
-        binding.btnBack.setOnClickListener(v -> {
-            getParentFragmentManager().popBackStack();
-        });
-
         binding.nestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
             if (scrollY >= (v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight())
                     && scrollY > oldScrollY && !isLast) {
                 isLast = true;
-                Log.d("bbb", "event: lasttttt");
                 loadMore();
             }
+        });
+
+        binding.searchBar.setOnClickListener(v -> {
+            startActivity(new Intent(getContext(), SearchActivity.class));
+            requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
     }
 
@@ -145,8 +144,7 @@ public class CategoryFragment extends Fragment {
                 });
     }
 
-    public void setData(Category category) {
-        this.category = category;
+    public void setData() {
     }
 
 }

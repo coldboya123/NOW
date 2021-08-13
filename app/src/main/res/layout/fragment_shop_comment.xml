@@ -4,7 +4,7 @@
     style="@style/MainTheme.MaxScreen"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".View.ShopView.TabView.ShopCommentFragment">
+    tools:context=".View.ShopView.TabView.Comment.view.ShopCommentFragment">
 
     <LinearLayout
         android:id="@+id/blockRating"

@@ -5,5 +5,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MainTheme.MaxScreen"
     android:orientation="vertical"
-    tools:context=".View.LoginView.LoginActivity"/>
+    tools:context=".View.LoginView.Activity.view.LoginActivity"/>
 

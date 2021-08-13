@@ -4,7 +4,7 @@
     style="@style/MainTheme.MaxScreen"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".View.HomeView.HomeFragment">
+    tools:context=".View.HomeView.Home.HomeFragment">
         <LinearLayout
             android:id="@+id/homeContainer"
             style="@style/MainTheme.MaxWidth"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MainTheme.MaxScreen"
     android:orientation="vertical"
-    tools:context=".View.ShopView.OrderSuccessFragment">
+    tools:context=".View.ShopView.OrderSuccess.OrderSuccessFragment">
 
     <TextView
         style="@style/MainTheme.Title"

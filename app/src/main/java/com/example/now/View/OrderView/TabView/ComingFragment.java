@@ -10,15 +10,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.now.R;
 import com.example.now.Repository.OrderRepository;
-import com.example.now.View.OrderView.OrderFragment;
-import com.example.now.View.OrderView.RCV_Order_Adapter;
+import com.example.now.View.OrderView.TabView.adapter.RCV_Order_Adapter;
 import com.example.now.ViewModel.OrderViewModel;
 import com.example.now.databinding.FragmentComingBinding;
 

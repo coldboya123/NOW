@@ -7,6 +7,7 @@ import com.example.now.Model.Object.Comment;
 import com.example.now.Model.Object.GroupFood;
 import com.example.now.Model.Object.RequestData;
 import com.example.now.Model.Object.ResponseData;
+import com.example.now.Model.Object.Shop;
 
 import java.util.List;
 
@@ -39,4 +40,7 @@ public class ShopRepository {
         return apiRequest.saveShop(request);
     }
 
+    public Call<List<Food>> searchFood(String request){
+        return apiRequest.searchFood(request);
+    }
 }

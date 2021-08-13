@@ -5,7 +5,7 @@
     style="@style/MainTheme.MaxScreen"
     android:background="@color/gray_1"
     android:orientation="vertical"
-    tools:context=".View.OrderView.OrderDetailActivity">
+    tools:context=".View.OrderView.Activity.OrderDetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/MainTheme.MaxWidth">
 

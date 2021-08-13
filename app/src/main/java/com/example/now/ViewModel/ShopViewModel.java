@@ -28,6 +28,7 @@ public class ShopViewModel extends ViewModel {
     private final MutableLiveData<List<Comment>> foodCommentLiveData;
     private final MutableLiveData<List<Comment>> shopCommentLiveData;
     private final MutableLiveData<ResponseData> saveShopLiveData;
+    private final MutableLiveData<List<Food>> listFoodLiveData;
 
     public ShopViewModel(ShopRepository repository) {
         this.repository = repository;
@@ -36,6 +37,7 @@ public class ShopViewModel extends ViewModel {
         foodCommentLiveData = new MutableLiveData<>();
         shopCommentLiveData = new MutableLiveData<>();
         saveShopLiveData = new MutableLiveData<>();
+        listFoodLiveData = new MutableLiveData<>();
     }
 
     public LiveData<List<GroupFood>> getFoodbyShop(String request) {
@@ -119,4 +121,19 @@ public class ShopViewModel extends ViewModel {
         return saveShopLiveData;
     }
 
+    public LiveData<List<Food>> searchFood(String request){
+        repository.searchFood(request)
+                .enqueue(new Callback<List<Food>>() {
+                    @Override
+                    public void onResponse(Call<List<Food>> call, Response<List<Food>> response) {
+                        listFoodLiveData.setValue(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Food>> call, Throwable t) {
+                        Log.d("bbb", "search food onFailure: " + t.getMessage());
+                    }
+                });
+        return listFoodLiveData;
+    }
 }

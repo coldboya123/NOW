@@ -17,8 +17,8 @@ import android.view.ViewGroup;
 import com.example.now.Model.Constant.Constant;
 import com.example.now.Model.Object.Shop;
 import com.example.now.Repository.HomeRepository;
-import com.example.now.View.HomeView.RCV_HomeShop_Adapter;
-import com.example.now.View.HomeView.onTabLoading;
+import com.example.now.View.Adapter.RCV_Shop_Adapter;
+import com.example.now.View.HomeView.module.onTabLoading;
 import com.example.now.ViewModel.HomeViewModel;
 import com.example.now.databinding.FragmentHomeHotPotBinding;
 
@@ -35,7 +35,7 @@ public class HomeHotPotFragment extends Fragment {
     private HomeViewModel viewModel;
     private int page = 0;
     private List<Shop> shopList = new ArrayList<>();
-    private RCV_HomeShop_Adapter adapter;
+    private RCV_Shop_Adapter adapter;
     private JSONObject object;
     private onTabLoading handlerTab;
 
@@ -51,7 +51,7 @@ public class HomeHotPotFragment extends Fragment {
 
     private void mapView() {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-        adapter = new RCV_HomeShop_Adapter(shopList);
+        adapter = new RCV_Shop_Adapter(shopList);
         binding.recyclerView.setAdapter(adapter);
     }
 
@@ -78,7 +78,6 @@ public class HomeHotPotFragment extends Fragment {
                     adapter.notifyItemRemoved(shopList.size());
                     shopList.addAll(shops);
                     adapter.notifyItemRangeInserted(shopList.size() - shops.size(), shops.size());
-                    Log.d("bbb", "loadmore: " + shopList.size());
                     handlerTab.onTabLoading(false);
                 });
     }

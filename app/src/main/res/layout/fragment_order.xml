@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MainTheme.MaxScreen"
-    tools:context=".View.OrderView.OrderFragment">
+    tools:context=".View.OrderView.Order.view.OrderFragment">
 
     <LinearLayout
         style="@style/MainTheme.MaxWidth"

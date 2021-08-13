@@ -2,7 +2,11 @@ package com.example.now.Model.ApiService;
 
 import com.example.now.Model.Object.Banner;
 import com.example.now.Model.Object.Category;
+import com.example.now.Model.Object.City;
+import com.example.now.Model.Object.CityResponse;
 import com.example.now.Model.Object.Collection;
+import com.example.now.Model.Object.District;
+import com.example.now.Model.Object.DistrictResponse;
 import com.example.now.Model.Object.Food;
 import com.example.now.Model.Object.Comment;
 import com.example.now.Model.Object.GroupFood;
@@ -11,14 +15,19 @@ import com.example.now.Model.Object.OrderDetail;
 import com.example.now.Model.Object.RequestData;
 import com.example.now.Model.Object.ResponseData;
 import com.example.now.Model.Object.Shop;
+import com.example.now.Model.Object.User;
 import com.example.now.Model.Object.UserAddress;
+import com.example.now.Model.Object.Ward;
+import com.example.now.Model.Object.WardResponse;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface APIRequest {
 
@@ -94,4 +103,35 @@ public interface APIRequest {
     @POST("/now/")
     Call<ResponseData> processComment(@Body String request);
 
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<List<Shop>> searchShop(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<List<Food>> searchFood(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @GET("/api/province/")
+    Call<CityResponse> getCity();
+
+    @Headers("Content-Type: application/json")
+    @GET("/api/province/district/{cityID}")
+    Call<DistrictResponse> getDistrict(@Path("cityID") String cityID);
+
+    @Headers("Content-Type: application/json")
+    @GET("/api/province/ward/{districtID}")
+    Call<WardResponse> getWard(@Path("districtID") String districtID);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<User> getUserProfile(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<ResponseData> editUser(@Body String request);
+
+    @Headers("Content-Type: application/json")
+    @POST("/now/")
+    Call<ResponseData> changePassword(@Body String request);
 }

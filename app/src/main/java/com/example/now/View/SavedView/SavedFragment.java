@@ -14,9 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.now.R;
 import com.example.now.Repository.SavedRepository;
-import com.example.now.View.HomeView.RCV_HomeShop_Adapter;
+import com.example.now.View.Adapter.RCV_Shop_Adapter;
 import com.example.now.ViewModel.SavedViewModel;
 import com.example.now.databinding.FragmentSavedBinding;
 
@@ -66,7 +65,7 @@ public class SavedFragment extends Fragment {
         viewModel.getShopSaved(object.toString())
                 .observe(getViewLifecycleOwner(), shops -> {
                     binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                    binding.recyclerView.setAdapter(new RCV_HomeShop_Adapter(shops));
+                    binding.recyclerView.setAdapter(new RCV_Shop_Adapter(shops));
                 });
     }
 }

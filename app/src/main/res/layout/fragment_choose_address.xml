@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MainTheme.MaxScreen"
     android:orientation="vertical"
-    tools:context=".View.AddressView.ChooseAddressFragment"
+    tools:context=".View.AddressView.Address.AddressFragment"
     android:background="@color/gray_1">
 
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/MainTheme.MaxWidth">

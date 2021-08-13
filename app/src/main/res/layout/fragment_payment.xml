@@ -5,7 +5,7 @@
     style="@style/MainTheme.MaxScreen"
     android:background="@color/gray_1"
     android:orientation="vertical"
-    tools:context=".View.Payment.PaymentFragment">
+    tools:context=".View.Payment.view.PaymentFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/MainTheme.MaxWidth">
 

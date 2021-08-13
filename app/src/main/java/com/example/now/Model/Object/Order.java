@@ -26,6 +26,8 @@ public class Order implements Serializable {
     private String price;
     @SerializedName("ship")
     private String ship;
+    @SerializedName("rate")
+    private String rate;
     @SerializedName("name")
     private String name;
     @SerializedName("count")
@@ -45,13 +47,14 @@ public class Order implements Serializable {
                 ", status='" + status + '\'' +
                 ", price='" + price + '\'' +
                 ", ship='" + ship + '\'' +
+                ", rate='" + rate + '\'' +
                 ", name='" + name + '\'' +
                 ", count='" + count + '\'' +
                 ", image='" + image + '\'' +
                 '}';
     }
 
-    public Order(String id, String shopId, String shopAddress, String userId, String listFood, String time, String status, String price, String ship, String name, String count, String image) {
+    public Order(String id, String shopId, String shopAddress, String userId, String listFood, String time, String status, String price, String ship, String rate, String name, String count, String image) {
         this.id = id;
         this.shopId = shopId;
         this.shopAddress = shopAddress;
@@ -61,9 +64,22 @@ public class Order implements Serializable {
         this.status = status;
         this.price = price;
         this.ship = ship;
+        this.rate = rate;
         this.name = name;
         this.count = count;
         this.image = image;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
+
+    public String getRate() {
+        return rate;
+    }
+
+    public float getRateFormated() {
+        return Float.parseFloat(rate);
     }
 
     public void setImage(String image) {
